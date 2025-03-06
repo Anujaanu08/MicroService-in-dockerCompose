@@ -1,0 +1,87 @@
+//{
+//    "Routes": [
+//        {
+//            "DownstreamPathTemplate": "/api/Book",
+//            "DownstreamScheme": "http",
+//            "DownstreamHostAndPorts": [
+//                {
+//                    "Host": "booksservice",
+//                    "Port": 8000
+//                }
+//            ],
+//            "UpstreamPathTemplate": "/books",
+//            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+//        },
+
+//        {
+//            "DownstreamPathTemplate": "/api/Rental",
+//            "DownstreamScheme": "http",
+//            "DownstreamHostAndPorts": [
+//                {
+//                    "Host": "rentalsservice",
+//                    "Port": 7000
+//                }
+//            ],
+//            "UpstreamPathTemplate": "/rentals",
+//            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+//        }
+//    ],
+//    "BaseUrl": "http://localhost:5000",
+//    "AllowInsecureHttp": true 
+
+//}
+
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/Book",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "booksservice",
+                    "Port": 8000
+                }
+            ],
+            "UpstreamPathTemplate": "/books",
+            "UpstreamHttpMethod": [ "GET", "POST" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Book/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "booksservice",
+                    "Port": 8000
+                }
+            ],
+            "UpstreamPathTemplate": "/books/{id}",
+            "UpstreamHttpMethod": [ "GET" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Rental",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "rentalsservice",
+                    "Port": 7000
+                }
+            ],
+            "UpstreamPathTemplate": "/rentals",
+            "UpstreamHttpMethod": [ "GET", "POST" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Rental/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "rentalsservice",
+                    "Port": 7000
+                }
+            ],
+            "UpstreamPathTemplate": "/rentals/{id}",
+            "UpstreamHttpMethod": [ "GET", "DELETE" ]
+        }
+    ],
+    "BaseUrl": "http://localhost:5000",
+    "AllowInsecureHttp": true
+}
