@@ -44,7 +44,7 @@ namespace RentalsService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rentals");
+                    b.ToTable("AnuRentals");
                 });
 #pragma warning restore 612, 618
         }

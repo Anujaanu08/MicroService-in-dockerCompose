@@ -8,5 +8,7 @@ namespace BooksService.IRepository
         Task<Books?> GetBookByIdAsync(int id);
         Task AddBookAsync(Books book);
         Task SaveChangesAsync();
+        Task DeleteBookAsync(int id);
+        Task<Books> UpdateBookAsync(Books book);
     }
 }

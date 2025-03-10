@@ -17,17 +17,32 @@ namespace BooksService.Repository
 
         public async Task<IEnumerable<Books>> GetAllBooksAsync()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.AnuBooks.ToListAsync();
         }
 
         public async Task<Books?> GetBookByIdAsync(int id)
         {
-            return await _context.Books.FindAsync(id);
+            return await _context.AnuBooks.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
         }
 
         public async Task AddBookAsync(Books book)
         {
-            await _context.Books.AddAsync(book);
+            await _context.AnuBooks.AddAsync(book);
+        }
+
+        public async Task<Books> UpdateBookAsync(Books book)
+        {
+            _context.AnuBooks.Update(book);
+            return book;
+        }
+
+        public async Task DeleteBookAsync(int id)
+        {
+            var book = await _context.AnuBooks.FindAsync(id);
+            if (book != null)
+            {
+                _context.AnuBooks.Remove(book);
+            }
         }
 
         public async Task SaveChangesAsync()

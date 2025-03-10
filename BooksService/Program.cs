@@ -21,18 +21,17 @@ builder.Services.AddDbContext<BookDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 
-
 builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-      var context= scope.ServiceProvider.GetRequiredService<BookDbContext>();
-    context.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//      var context= scope.ServiceProvider.GetRequiredService<BookDbContext>();
+//    context.Database.Migrate();
+//}
 
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())

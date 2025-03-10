@@ -9,6 +9,7 @@ services:
         - MicroServiceNetwork
     ports:
       - "5000:5000"
+      - "5001:5001"
     depends_on :
       - booksservice
       - rentalsservice
@@ -24,6 +25,9 @@ services:
       - "6000:6000"
     networks : 
         - MicroServiceNetwork
+    depends_on :
+      - booksservice
+  
 
 
   booksservice:
@@ -58,18 +62,18 @@ services:
     restart: on-failure
 
     
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    ports:
-      - "1433:1433"
-    environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD : "Anutae08v"
-    volumes:
-      - sqlserver_data:/var/opt/mssql
-    networks : 
-     - MicroServiceNetwork
-    restart: on-failure
+  # sqlserver:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   ports:
+  #     - "1433:1433"
+  #   environment:
+  #     ACCEPT_EULA: "Y"
+  #     SA_PASSWORD : "Password123"
+  #   volumes:
+  #     - sqlserver_data:/var/opt/mssql
+  #   networks : 
+  #    - MicroServiceNetwork
+  #   restart: on-failure
     
 
 networks:
@@ -78,3 +82,7 @@ networks:
 
 volumes:
   sqlserver_data:
+   driver: bridge
+
+
+

@@ -7,5 +7,7 @@ namespace BooksService.IService
         Task<IEnumerable<Books>> GetAllBooksAsync();
         Task<Books?> GetBookByIdAsync(int id);
         Task AddBookAsync(Books book);
+        Task DeleteBookAsync(int id);
+        Task<Books> UpdateBookAsync(Books book);
     }
 }

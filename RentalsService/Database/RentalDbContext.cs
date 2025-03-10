@@ -9,6 +9,6 @@ namespace RentalsService.Database
         {
         }
 
-        public DbSet<Rental> Rentals { get; set; }
+        public DbSet<Rental> AnuRentals { get; set; }
     }
 }

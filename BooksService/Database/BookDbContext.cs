@@ -12,6 +12,6 @@ namespace BooksService.Database
            
         }
 
-        public DbSet<Books> Books { get; set; }
+        public DbSet<Books> AnuBooks { get; set; }
     }
 }

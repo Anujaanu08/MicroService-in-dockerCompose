@@ -8,6 +8,7 @@ namespace RentalsService.IRepository
         Task<Rental?> GetRentalByIdAsync(int id);
         Task AddRentalAsync(Rental rental);
         Task DeleteRentalAsync(int id);
+        Task<Rental> UpdateRentalAsync(Rental book);
         Task SaveChangesAsync();
     }
 }

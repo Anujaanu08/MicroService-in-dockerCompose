@@ -39,6 +39,20 @@ namespace RentalsService.Controllers
             return CreatedAtAction(nameof(GetRentalById), new { id = rental.Id }, rental);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateRental(int id, [FromBody] Rental book)
+        {
+            try
+            {
+                var rentalresponse = await _rentalService.UpdateRentalAsync(book);
+                return Ok(rentalresponse);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRental(int id)
         {
