@@ -23,8 +23,9 @@ services:
       dockerfile: Yarp_gateway/Dockerfile
     ports:
       - "6000:6000"
+      - "6001:6001"
     networks : 
-        - MicroServiceNetwork
+        - MicroServiceNetwork 
     depends_on :
       - booksservice
   
@@ -40,7 +41,7 @@ services:
     environment:
      - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "8000:8000"
+      - "8000:8080"
     networks : 
         - MicroServiceNetwork
     restart: on-failure
