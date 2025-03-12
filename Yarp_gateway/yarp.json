@@ -1,0 +1,45 @@
+{
+    "ReverseProxy": {
+        "Routes": {
+            "books_route": {
+                "ClusterId": "books_cluster",
+                "Match": {
+                    "Path": "/books/{**catch-all}"
+                },
+                "Transforms": [
+                    {
+                        "PathPattern": "{**catch-all}"
+                    }
+                ]
+            },
+            "rentals_route": {
+                "ClusterId": "rentals_cluster",
+                "Match": {
+                    "Path": "/rentals/{**catch-all}"
+                },
+                "Transforms": [
+                    {
+                        "PathPattern": "{**catch-all}"
+                    }
+                ]
+            }
+        },
+        "Clusters": {
+            "books_cluster": {
+                "Destinations": {
+                    "booksservice": {
+                        "Address": "http://booksservice:8080/"
+                    }
+                }
+            },
+            "rentals_cluster": {
+                "Destinations": {
+                    "booksservice": {
+                        "Address": "http://rentalsservice:8080/"
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -5,7 +5,7 @@ using RentalsService.IService;
 
 namespace RentalsService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class RentalController : ControllerBase
     {

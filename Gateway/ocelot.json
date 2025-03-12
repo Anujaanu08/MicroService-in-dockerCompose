@@ -8,7 +8,7 @@
             "DownstreamHostAndPorts": [
                 {
                     "Host": "booksservice",
-                    "Port": 8000
+                    "Port": 8080
                 }
             ],
             "UpstreamPathTemplate": "/books",
@@ -20,31 +20,31 @@
             "DownstreamHostAndPorts": [
                 {
                     "Host": "booksservice",
-                    "Port": 8000
+                    "Port": 8080
                 }
             ],
             "UpstreamPathTemplate": "/books/{id}",
             "UpstreamHttpMethod": [ "GET" ]
         },
         {
-            "DownstreamPathTemplate": "/api/Rental",
+            "DownstreamPathTemplate": "/Rental",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "rentalsservice",
-                    "Port": 7000
+                    "Port": 8080
                 }
             ],
             "UpstreamPathTemplate": "/rentals",
             "UpstreamHttpMethod": [ "GET", "POST" ]
         },
         {
-            "DownstreamPathTemplate": "/api/Rental/{id}",
+            "DownstreamPathTemplate": "/Rental/{id}",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
                     "Host": "rentalsservice",
-                    "Port": 7000
+                    "Port": 8080
                 }
             ],
             "UpstreamPathTemplate": "/rentals/{id}",
